@@ -29,6 +29,10 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/cakephp' ]; then
 
         touch .gitkeep
 
+        composer require mixerapi/mixerapi
+        bin/cake plugin load MixerApi
+        bin/cake mixerapi install --auto Y
+
         if [ "$APP_ENV" = 'dev' ]; then
             chown -R cakephp:www-data .
         fi
