@@ -1,4 +1,4 @@
-MixerAPI App
+# MixerAPI App
 
 [![Build](https://github.com/mixerapi/app/workflows/Build/badge.svg?branch=main)](https://github.com/mixerapi/app/actions)
 [![MixerApi](https://mixerapi.com/assets/img/mixer-api-red.svg)](http://mixerapi.com)
