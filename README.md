@@ -1,6 +1,7 @@
-# &#127856; CakePHP Docker
+MixerAPI App
 
-[![Build](https://github.com/cnizzardini/cakephp-docker/workflows/Build/badge.svg?branch=master)](https://github.com/cnizzardini/cakephp-docker/actions)
+[![Build](https://github.com/mixerapi/app/workflows/Build/badge.svg?branch=main)](https://github.com/mixerapi/app/actions)
+[![MixerApi](https://mixerapi.com/assets/img/mixer-api-red.svg)](http://mixerapi.com)
 [![CakePHP](https://img.shields.io/badge/cakephp-4.2-red?logo=cakephp)](https://book.cakephp.org/4/en/index.html)
 [![Docker](https://img.shields.io/badge/docker-ffffff.svg?logo=docker)](https://www.docker.com)
 [![Kubernetes](https://img.shields.io/badge/kubernetes-D3D3D3.svg?logo=kubernetes)](https://kubernetes.io/)
@@ -8,7 +9,10 @@
 [![NGINX](https://img.shields.io/badge/nginx-1.19-009639.svg?logo=nginx)](https://www.nginx.com/)
 [![MySQL](https://img.shields.io/badge/mysql-8-00758F.svg?logo=mysql)](https://www.mysql.com/)
 
-A [cakephp/app 4.2](https://github.com/cakephp/app) template for Docker Compose and Kubernetes.
+A [mixerapi/mixerapi](https://github.com/mixerapi/mixerapi) application template for Docker Compose and Kubernetes
+based on the official [cakephp/app 4.2](https://github.com/cakephp/app) template.
+
+This project has been forked from [cnizzardini/cakephp-docker](https://github.com/cnizzardini/cakephp-docker).
 
 | Service                   | Host:Port         | Docker Host   | Image   |
 | -----------               | -----------       | -----------   | -----------   |
