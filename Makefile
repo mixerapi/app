@@ -75,8 +75,8 @@ COMP_CHECK      := docker exec $(PHP) composer check
 #
 help:
 	@printf "\n"
-	@printf $(CAKEPHP_ICO) && printf "$(RED) CakePHP Docker (unofficial) $(S)"
-	@printf "$(LIGHTPURPLE) https://github.com/cnizzardini/cakephp-docker $(E)\n"
+	@printf $(CAKEPHP_ICO) && printf "$(RED) MixerAPI $(S)"
+	@printf "$(LIGHTPURPLE) https://mixerapi.com $(E)\n"
 	@printf " command \t\t description $(E)"
 	@printf " ------- \t\t ----------- $(E)"
 	@printf "$(INFO) make init $(RESET)\t\t build and bring up containers $(E)"
