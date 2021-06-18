@@ -32,21 +32,18 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/cakephp' ]; then
         composer require mixerapi/mixerapi
         bin/cake plugin load MixerApi
         bin/cake mixerapi install --auto Y
-
-        if [ "$APP_ENV" = 'dev' ]; then
-            chown -R cakephp:www-data .
-        fi
-
-        setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX logs
-        setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX tmp
     fi
 
-    if [ "$APP_ENV" = 'prod' ]; then
-        composer install --prefer-dist --no-interaction --no-dev
-    else
+    if [ "$APP_ENV" != 'prod' ]; then
         composer install --prefer-dist --no-interaction
     fi
 
+    mkdir -p logs tmp
+    setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX logs
+    setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX tmp
+    setfacl -R -m g:nginx:rwX /srv/app
+    chown -R cakephp:www-data .
+    chmod 774 -R .
 fi
 
 exec docker-php-entrypoint "$@"
