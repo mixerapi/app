@@ -28,6 +28,10 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/cakephp' ]; then
         sed -i '/export SECURITY_SALT/c\export SECURITY_SALT="'$salt'"' config/.env
 
         touch .gitkeep
+
+        composer require mixerapi/mixerapi
+        bin/cake plugin load MixerApi
+        bin/cake mixerapi install --auto Y
     fi
 
     if [ "$APP_ENV" != 'prod' ]; then
