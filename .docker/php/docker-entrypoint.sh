@@ -31,6 +31,13 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/cakephp' ]; then
 
         composer require mixerapi/mixerapi
         bin/cake plugin load MixerApi
+        
+        bin/cake plugin load MixerApi/Crud:dev-master
+        bin/cake plugin load MixerApi/Crud
+        
+        composer require friendsofcake/search
+        bin/cake plugin load Search
+        
         bin/cake mixerapi install --auto Y
     fi
 
