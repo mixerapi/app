@@ -29,15 +29,14 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/cakephp' ]; then
 
         touch .gitkeep
 
-        composer require friendsofcake/search
-        bin/cake plugin load Search
-
         composer require mixerapi/mixerapi
-        bin/cake plugin load MixerApi
-        
         composer require mixerapi/crud
+        composer require friendsofcake/search
+
+        bin/cake plugin load Search
         bin/cake plugin load MixerApi/Crud
-        
+        bin/cake plugin load MixerApi
+
         bin/cake mixerapi install --auto Y
     fi
 
