@@ -14,19 +14,26 @@ based on the official [cakephp/app 4.2](https://github.com/cakephp/app) template
 
 This project has been forked from [cnizzardini/cakephp-docker](https://github.com/cnizzardini/cakephp-docker).
 
+#### Dependencies:
+
+- [Docker 20](https://docs.docker.com/engine/release-notes/) or higher
+- Make
+
 | Service                   | Host:Port         | Docker Host   | Image   |
 | -----------               | -----------       | -----------   | -----------   |
-| PHP7.4-FPM w/ Xdebug 3    | -                 | php           | [cnizzardini/php-fpm-alpine:7.4-latest](https://hub.docker.com/r/cnizzardini/php-fpm-alpine) |
+| PHP8.0-FPM w/ Xdebug 3    | -                 | php           | [cnizzardini/php-fpm-alpine:8.0-latest](https://hub.docker.com/r/cnizzardini/php-fpm-alpine) |
 | NGINX 1.19                | localhost:8080    | web           | [nginx:1.19-alpine](https://hub.docker.com/_/nginx) |
 | MySQL 8                   | localhost:3607    | db            | [library/mysql:8](https://hub.docker.com/_/mysql) |
 
+
 - [Installation](#installation)
-- [Mac OS Notes](#mac-notes)
+- [MacOS Notes](#mac-notes)
 - [Usage](#usage)
   - [PHP](#php)
   - [MySQL](#mysql)
   - [NGINX](#nginx)
   - [Xdebug](#xdebug)
+- [Reinstall](#reinstall)
 
 ## Installation
 
@@ -146,4 +153,9 @@ Go to `File > Settings > Languages & Frameworks > PHP > Servers`
 - Debugger: `Xdebug`
 - Use path mappings: `Enable`
 
-Map your projects app directory to the absolute path on the docker container `/srv/app`
+Map your project's app directory to the absolute path on the docker container `/srv/app`
+
+## Reinstall
+
+To completely reinstall delete existing containers and images, then remove the `app/` directory and run `make init`
+again.
