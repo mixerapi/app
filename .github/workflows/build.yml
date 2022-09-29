@@ -18,12 +18,12 @@ jobs:
       - name: Build
         run: docker-compose build --build-arg UID=$(id -u) --build-arg ENV=dev
       - name: Start
-        run: docker-compose up -d --wait
+        run: docker-compose up -d
       - name: Check CakePHP Welcome Page
         uses: nick-fields/retry@v2
         with:
           timeout_seconds: 10
-          max_attempts: 5
+          max_attempts: 10
           command: curl -f -v -o /dev/null http://localhost:8080
       - name: Check NGINX Files
         uses: nick-fields/retry@v2
