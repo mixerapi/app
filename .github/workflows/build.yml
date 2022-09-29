@@ -20,6 +20,14 @@ jobs:
       - name: Start
         run: docker-compose up -d --wait
       - name: Check CakePHP Welcome Page
-        run: curl -f -v -o /dev/null http://localhost:8080 --retry 10 --retry-delay 10
+        uses: nick-fields/retry@v2
+        with:
+          timeout_seconds: 10
+          max_attempts: 5
+          command: curl -f -v -o /dev/null http://localhost:8080
       - name: Check NGINX Files
-        run: curl -f -v -o /dev/null http://localhost:8080/css/home.css --retry 10 --retry-delay 10
+        uses: nick-fields/retry@v2
+        with:
+          timeout_seconds: 10
+          max_attempts: 5
+          command: curl -f -v -o /dev/null http://localhost:8080/css/home.css
