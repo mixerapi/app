@@ -19,9 +19,15 @@ jobs:
         run: docker-compose build --build-arg UID=$(id -u) --build-arg ENV=dev
       - name: Start
         run: docker-compose up -d
-      - name: Wait for services
-        run: sleep 10
       - name: Check CakePHP Welcome Page
-        run: curl -f -v -o /dev/null http://localhost:8080
+        uses: nick-fields/retry@v2
+        with:
+          timeout_seconds: 10
+          max_attempts: 10
+          command: curl -f -v -o /dev/null http://localhost:8080
       - name: Check NGINX Files
-        run: curl -f -v -o /dev/null http://localhost:8080/css/home.css
+        uses: nick-fields/retry@v2
+        with:
+          timeout_seconds: 10
+          max_attempts: 5
+          command: curl -f -v -o /dev/null http://localhost:8080/css/home.css

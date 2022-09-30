@@ -1,8 +1,8 @@
 #
 # container
 # @see https://hub.docker.com/repository/docker/cnizzardini/php-fpm-alpine
-# @see https://github.com/cnizzardini/php-fpm-alpine/tree/php-8.0
-FROM cnizzardini/php-fpm-alpine:8.0-latest AS cakephp_php
+# @see https://github.com/cnizzardini/php-fpm-alpine/tree/php-8.1
+FROM cnizzardini/php-fpm-alpine:8.1-latest AS cakephp_php
 
 ARG ENV=prod
 ARG UID=1000
@@ -24,9 +24,9 @@ fi
 #
 # application
 #
-COPY .docker/php/docker-healthcheck.sh /usr/local/bin/docker-healthcheck
-RUN chmod +x /usr/local/bin/docker-healthcheck
-HEALTHCHECK --interval=10s --timeout=3s --retries=3 CMD ["docker-healthcheck"]
+#COPY .docker/php/docker-healthcheck.sh /usr/local/bin/docker-healthcheck
+#RUN chmod +x /usr/local/bin/docker-healthcheck
+#HEALTHCHECK --interval=10s --timeout=3s --retries=3 CMD ["docker-healthcheck"]
 
 COPY .docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
